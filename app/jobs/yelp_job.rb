@@ -1,7 +1,7 @@
 class YelpJob < ActiveJob::Base
   queue_as :default
 
-  def perform
-    YelpScraper.new.perform
+  def perform(url)
+    YelpScraper.new(url).perform
   end
 end

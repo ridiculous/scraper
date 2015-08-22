@@ -1,0 +1,28 @@
+<h1>New Restaurants in San Francisco</h1>
+<p>These are the newest businesses we found on Yelp</p>
+<div>
+  <%= form_for(Business.new) do |f| %>
+      <div class="inline">
+        <%= f.search_field :url, placeholder: 'Enter a Yelp URL to scrape' %>
+      </div>
+      <div class="inline">
+        <%= f.submit 'Scrape It' %>
+      </div>
+  <% end %>
+</div>
+<table cellpadding="5" cellspacing="5" width="100%">
+  <tr>
+    <th>Rating</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th></th>
+  </tr>
+  <% @businesses.each do |business| %>
+      <tr>
+        <td><%= business.rating %></td>
+        <td><%= link_to business.name, business.url, target: '_blank' %></td>
+        <td><%= business.address %></td>
+      </tr>
+  <% end %>
+</table>
+

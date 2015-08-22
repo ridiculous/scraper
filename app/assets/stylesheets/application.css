@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+table th {
+    text-align: left;
+}
+
+.inline {
+    display: inline-block;
+}
+
+input[type=search] {
+    width: 250px;
+}
