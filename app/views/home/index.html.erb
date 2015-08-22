@@ -1,5 +1,4 @@
 <h1>New Restaurants in San Francisco</h1>
-<p>These are the newest businesses we found on Yelp</p>
 <div>
   <%= form_for(Business.new) do |f| %>
       <div class="inline">
@@ -9,7 +8,9 @@
         <%= f.submit 'Scrape It' %>
       </div>
   <% end %>
+  <small>Example: <i>http://www.yelp.com/search?find_desc=tacos&find_loc=San+Francisco%2C+CA&ns=1</i></small>
 </div>
+<p>These are the newest businesses we found on Yelp</p>
 <table cellpadding="5" cellspacing="5" width="100%">
   <tr>
     <th>Rating</th>
