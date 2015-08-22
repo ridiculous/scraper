@@ -8,22 +8,33 @@
         <%= f.submit 'Scrape It' %>
       </div>
   <% end %>
-  <small>Example: <i>http://www.yelp.com/search?find_desc=tacos&find_loc=San+Francisco%2C+CA&ns=1</i></small>
+  <div style="padding-left: 10px">
+    <small>Examples:</small>
+    <br/>
+    <small><i>http://www.yelp.com/search?attrs=NewBusiness&cflt=restaurants&find_desc=&find_loc=San+Francisco%2C+CA</i>
+    </small>
+    <br/>
+    <small><i>http://www.yelp.com/search?find_desc=tacos&find_loc=San+Francisco%2C+CA&ns=1</i></small>
+  </div>
 </div>
-<p>These are the newest businesses we found on Yelp</p>
-<table cellpadding="5" cellspacing="5" width="100%">
-  <tr>
-    <th>Rating</th>
-    <th>Name</th>
-    <th>Address</th>
-    <th></th>
-  </tr>
-  <% @businesses.each do |business| %>
+<% if @businesses.any? %>
+    <p>These are the newest businesses we found on Yelp</p>
+    <table cellpadding="5" cellspacing="5" width="100%">
       <tr>
-        <td><%= business.rating %></td>
-        <td><%= link_to business.name, business.url, target: '_blank' %></td>
-        <td><%= business.address %></td>
+        <th>Rating</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th></th>
       </tr>
-  <% end %>
-</table>
+      <% @businesses.each do |business| %>
+          <tr>
+            <td><%= business.rating %></td>
+            <td><%= link_to business.name, business.url, target: '_blank' %></td>
+            <td><%= business.address %></td>
+          </tr>
+      <% end %>
+    </table>
+<% else %>
+    <p>No data yet.</p>
+<% end %>
 
